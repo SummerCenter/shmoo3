@@ -1,0 +1,1032 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>منصة شموع المعرفة - متابعة نتائج التربية الإسلامية</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #8B4513;
+            --secondary: #DAA520;
+            --accent: #CD853F;
+            --light: #f8f9fa;
+            --dark: #2c3e50;
+            --success: #2ecc71;
+            --warning: #f39c12;
+            --danger: #e74c3c;
+            --text: #34495e;
+            --border-radius: 12px;
+            --box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Tajawal', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #f9f5f0 100%);
+            color: var(--text);
+            line-height: 1.7;
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(205, 133, 63, 0.1) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(139, 69, 19, 0.1) 0%, transparent 20%);
+            z-index: -1;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 25px 0;
+            border-radius: 0 0 var(--border-radius) var(--border-radius);
+            box-shadow: var(--box-shadow);
+            margin-bottom: 30px;
+            position: relative;
+            overflow: visible;
+        }
+
+        header::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 200%;
+            background: rgba(255, 255, 255, 0.1);
+            transform: rotate(25deg);
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 1000;
+            gap: 20px;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            flex: 1;
+        }
+
+        .logo {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: var(--transition);
+        }
+
+        .logo:hover {
+            transform: rotate(5deg) scale(1.05);
+        }
+
+        .school-info h1 {
+            font-size: 1.8rem;
+            margin-bottom: 8px;
+            font-weight: 800;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+        }
+
+        .school-info p {
+            font-size: 1.1rem;
+            opacity: 0.95;
+            font-weight: 500;
+        }
+
+        .platform-name {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            margin: 10px 0;
+        }
+
+        .scrolling-info {
+            background: linear-gradient(135deg, var(--accent), var(--secondary));
+            color: white;
+            padding: 18px;
+            border-radius: var(--border-radius);
+            margin-bottom: 35px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: var(--box-shadow);
+        }
+
+        .scrolling-content {
+            display: flex;
+            animation: scroll 35s linear infinite;
+            white-space: nowrap;
+        }
+
+        .scrolling-content p {
+            margin-left: 60px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .scrolling-content i {
+            font-size: 1.4rem;
+        }
+
+        @keyframes scroll {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+
+        .search-section {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            margin-bottom: 35px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .search-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to left, var(--primary), var(--accent));
+        }
+
+        .search-section h2 {
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .search-form {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            align-items: flex-end;
+            justify-content: center;
+        }
+
+        .form-group {
+            flex: 1;
+            min-width: 250px;
+            max-width: 400px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 1.1rem;
+        }
+
+        input {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: var(--border-radius);
+            font-size: 1.1rem;
+            transition: var(--transition);
+            background: rgba(255, 255, 255, 0.9);
+            text-align: center;
+        }
+
+        input:focus {
+            border-color: var(--accent);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(205, 133, 63, 0.3);
+            background: white;
+        }
+
+        button {
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-weight: 700;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 4px 15px rgba(139, 69, 19, 0.3);
+        }
+
+        button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(139, 69, 19, 0.4);
+        }
+
+        button:active {
+            transform: translateY(1px);
+        }
+
+        .student-info {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            margin-bottom: 35px;
+            display: none;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .student-info::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to left, var(--secondary), var(--accent));
+        }
+
+        .student-info.active {
+            display: block;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        @keyframes fadeInUp {
+            from { 
+                opacity: 0; 
+                transform: translateY(20px); 
+            }
+            to { 
+                opacity: 1; 
+                transform: translateY(0); 
+            }
+        }
+
+        .student-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .student-name {
+            font-size: 2rem;
+            color: var(--primary);
+            font-weight: 800;
+        }
+
+        .student-class {
+            font-size: 1.3rem;
+            color: var(--secondary);
+            background: rgba(218, 165, 32, 0.1);
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-weight: 700;
+        }
+
+        .grades-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 35px;
+        }
+
+        .grade-card {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 25px;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            border-left: 5px solid var(--accent);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .grade-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(205, 133, 63, 0.05) 0%, transparent 100%);
+            z-index: 0;
+        }
+
+        .grade-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .grade-title {
+            font-size: 1.3rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .grade-value {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--secondary);
+        }
+
+        .grade-max {
+            font-size: 1rem;
+            color: #7f8c8d;
+            margin-top: 5px;
+        }
+
+        .progress-bar {
+            height: 12px;
+            background-color: #ecf0f1;
+            border-radius: 6px;
+            margin-top: 15px;
+            overflow: hidden;
+            position: relative;
+            z-index: 1;
+        }
+
+        .progress-fill {
+            height: 100%;
+            border-radius: 6px;
+            background: linear-gradient(to right, var(--accent), var(--secondary));
+            position: relative;
+            transition: width 1.5s ease;
+        }
+
+        .total-grade {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 35px;
+            border-radius: var(--border-radius);
+            text-align: center;
+            box-shadow: var(--box-shadow);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .total-grade::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 200%;
+            background: rgba(255, 255, 255, 0.1);
+            transform: rotate(25deg);
+        }
+
+        .total-grade h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .total-grade .grade-value {
+            font-size: 4rem;
+            color: white;
+            position: relative;
+            z-index: 1;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .teacher-notes {
+            background: white;
+            padding: 25px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            margin-top: 35px;
+            position: relative;
+            overflow: hidden;
+            border-right: 5px solid var(--primary);
+        }
+
+        .teacher-notes::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(139, 69, 19, 0.05) 0%, transparent 100%);
+        }
+
+        .teacher-notes h3 {
+            color: var(--primary);
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .notes-content {
+            line-height: 1.8;
+            font-size: 1.2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        footer {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            text-align: center;
+            padding: 30px;
+            margin-top: 50px;
+            border-radius: var(--border-radius) var(--border-radius) 0 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        footer::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.05);
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 25px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .school-name h3 {
+            font-size: 1.6rem;
+            margin-bottom: 10px;
+        }
+
+        .copyright {
+            text-align: center;
+            width: 100%;
+            margin-top: 25px;
+            padding-top: 25px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            position: relative;
+            z-index: 1;
+        }
+
+        /* تأثيرات الألوان الديناميكية */
+        .color-dynamic {
+            animation: colorShift 10s infinite alternate;
+        }
+
+        @keyframes colorShift {
+            0% {
+                background: linear-gradient(135deg, var(--primary), var(--secondary));
+            }
+            25% {
+                background: linear-gradient(135deg, #8B4513, #CD853F);
+            }
+            50% {
+                background: linear-gradient(135deg, #A0522D, #DAA520);
+            }
+            75% {
+                background: linear-gradient(135deg, #CD853F, #F4A460);
+            }
+            100% {
+                background: linear-gradient(135deg, var(--secondary), var(--primary));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 25px;
+            }
+            
+            .school-info h1 {
+                font-size: 1.5rem;
+            }
+            
+            .platform-name {
+                font-size: 1.1rem;
+                padding: 10px 20px;
+            }
+            
+            .student-header {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .exam-table {
+                font-size: 0.9rem;
+            }
+            
+            .exam-table th, .exam-table td {
+                padding: 10px;
+            }
+        }
+
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .loading-spinner {
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid var(--accent);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .error-message {
+            background: rgba(231, 76, 60, 0.1);
+            color: var(--danger);
+            padding: 15px;
+            border-radius: var(--border-radius);
+            margin-top: 15px;
+            text-align: center;
+            border-right: 4px solid var(--danger);
+            display: none;
+        }
+
+        .success-message {
+            background: rgba(46, 204, 113, 0.1);
+            color: var(--success);
+            padding: 15px;
+            border-radius: var(--border-radius);
+            margin-top: 15px;
+            text-align: center;
+            border-right: 4px solid var(--success);
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <header class="color-dynamic">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-section">
+                    <img src="https://b.top4top.io/p_3598yip2y1.jpeg" alt="شعار مدرسة شموع المعرفة" class="logo" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iOTAiIGhlaWdodD0iOTAiIHZpZXdCb3g9IjAgMCA5MCA5MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjkwIiBoZWlnaHQ9IjkwIiByeD0iNDUiIGZpbGw9IiM4QjQ1MTMiLz4KPHN2ZyB4PSIyNSIgeT0iMjUiIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IndoaXRlIiBzdHJva2Utd2lkdGg9IjIiPgo8cGF0aCBkPSJNMTIgMTNWMTJNMTIgNlYxMk0xMiAxMkMxMiAxMiAxNSAxMiAxNSAxNUMxNSAxOCAxMiAyMSAxMiAyMUMxMiAyMSA5IDE4IDkgMTVDOSAxMiAxMiAxMiAxMiAxMloiLz4KPC9zdmc+Cjwvc3ZnPg=='">
+                    <div class="school-info">
+                        <h1>مدرسة شموع المعرفة حلقة أولى</h1>
+                        <p>نحو تعليم متميز يواكب متطلبات العصر</p>
+                    </div>
+                </div>
+                <div class="platform-name">
+                    <i class="fas fa-chart-line"></i> منصة شموع لمادة التربية الإسلامية
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <section class="scrolling-info color-dynamic">
+            <div class="scrolling-content">
+                <p><i class="fas fa-lightbulb"></i> شموع المعرفة: نضيء عقول الطلاب وننير مستقبلهم</p>
+                <p><i class="fas fa-star"></i> تميزنا: نقدم تعليماً نوعياً يركز على القيم الإسلامية والتفوق الأكاديمي</p>
+                <p><i class="fas fa-graduation-cap"></i> رؤيتنا: تخريج جيل متمسك بهويته الإسلامية ومتميز علمياً</p>
+                <p><i class="fas fa-users"></i> شركاء النجاح: نعمل معاً لتحقيق أفضل النتائج لأبنائنا الطلاب</p>
+            </div>
+        </section>
+
+        <section class="search-section">
+            <h2><i class="fas fa-search"></i> البحث عن نتائج الطالب</h2>
+            <div class="search-form">
+                <div class="form-group">
+                    <label for="studentId">رقم الطالب (8 أرقام)</label>
+                    <input type="text" id="studentId" placeholder="أدخل رقم الطالب المكون من 8 أرقام">
+                </div>
+                <button id="searchBtn">
+                    <i class="fas fa-search"></i> عرض النتائج
+                </button>
+            </div>
+            <div class="error-message" id="errorMessage"></div>
+            <div class="success-message" id="successMessage"></div>
+        </section>
+
+        <div class="loading" id="loadingIndicator">
+            <div class="loading-spinner"></div>
+            <p>جاري تحميل البيانات من السجلات الرسمية...</p>
+        </div>
+
+        <section class="student-info" id="studentInfo">
+            <div class="student-header">
+                <h2 class="student-name" id="studentName">اسم الطالب</h2>
+                <div class="student-class" id="studentClass">الصف</div>
+            </div>
+
+            <div class="grades-container">
+                <div class="grade-card">
+                    <div class="grade-title">
+                        <span>التلاوة 1</span>
+                        <span class="grade-value" id="tilaawa1Grade">0</span>
+                    </div>
+                    <div class="grade-max">من 20 درجة</div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="tilaawa1Progress"></div>
+                    </div>
+                </div>
+
+                <div class="grade-card">
+                    <div class="grade-title">
+                        <span>التلاوة 2</span>
+                        <span class="grade-value" id="tilaawa2Grade">0</span>
+                    </div>
+                    <div class="grade-max">من 20 درجة</div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="tilaawa2Progress"></div>
+                    </div>
+                </div>
+
+                <div class="grade-card">
+                    <div class="grade-title">
+                        <span>الحفظ 1</span>
+                        <span class="grade-value" id="hifz1Grade">0</span>
+                    </div>
+                    <div class="grade-max">من 20 درجة</div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="hifz1Progress"></div>
+                    </div>
+                </div>
+
+                <div class="grade-card">
+                    <div class="grade-title">
+                        <span>الحفظ 2</span>
+                        <span class="grade-value" id="hifz2Grade">0</span>
+                    </div>
+                    <div class="grade-max">من 20 درجة</div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="hifz2Progress"></div>
+                    </div>
+                </div>
+
+                <div class="grade-card">
+                    <div class="grade-title">
+                        <span>مهارة التلاوة والحفظ</span>
+                        <span class="grade-value" id="skillsGrade">0</span>
+                    </div>
+                    <div class="grade-max">من 70 درجة</div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="skillsProgress"></div>
+                    </div>
+                </div>
+
+                <div class="grade-card">
+                    <div class="grade-title">
+                        <span>سؤال قصير 1</span>
+                        <span class="grade-value" id="shortQ1Grade">0</span>
+                    </div>
+                    <div class="grade-max">من 5 درجات</div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="shortQ1Progress"></div>
+                    </div>
+                </div>
+
+                <div class="grade-card">
+                    <div class="grade-title">
+                        <span>سؤال قصير 2</span>
+                        <span class="grade-value" id="shortQ2Grade">0</span>
+                    </div>
+                    <div class="grade-max">من 5 درجات</div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="shortQ2Progress"></div>
+                    </div>
+                </div>
+
+                <div class="grade-card">
+                    <div class="grade-title">
+                        <span>نشاط عملي 1</span>
+                        <span class="grade-value" id="activity1Grade">0</span>
+                    </div>
+                    <div class="grade-max">من 10 درجات</div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="activity1Progress"></div>
+                    </div>
+                </div>
+
+                <div class="grade-card">
+                    <div class="grade-title">
+                        <span>نشاط عملي 2</span>
+                        <span class="grade-value" id="activity2Grade">0</span>
+                    </div>
+                    <div class="grade-max">من 10 درجات</div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="activity2Progress"></div>
+                    </div>
+                </div>
+
+                <div class="grade-card">
+                    <div class="grade-title">
+                        <span>المهارات العقلية</span>
+                        <span class="grade-value" id="mentalSkillsGrade">0</span>
+                    </div>
+                    <div class="grade-max">من 30 درجة</div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="mentalSkillsProgress"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="total-grade color-dynamic">
+                <h3>المجموع الكلي</h3>
+                <div class="grade-value" id="totalGrade">0</div>
+                <div class="grade-max">من 100 درجة</div>
+            </div>
+
+            <div class="teacher-notes">
+                <h3><i class="fas fa-clipboard-list"></i> ملاحظات المعلم</h3>
+                <div class="notes-content" id="teacherNotes">لا توجد ملاحظات حالياً</div>
+            </div>
+        </section>
+    </div>
+
+    <footer class="color-dynamic">
+        <div class="container">
+            <div class="footer-content">
+                <div class="school-name">
+                    <h3>مدرسة شموع المعرفة حلقة أولى</h3>
+                    <p>نحو جيل متميز في العلم والأخلاق</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>جميع الحقوق محفوظة &copy; 2025 منصة شموع المعرفة لمادة التربية الإسلامية</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchBtn = document.getElementById('searchBtn');
+            const studentInfo = document.getElementById('studentInfo');
+            const loadingIndicator = document.getElementById('loadingIndicator');
+            const errorMessage = document.getElementById('errorMessage');
+            const successMessage = document.getElementById('successMessage');
+            
+            let studentsData = {};
+
+            // تحميل البيانات من جدول البيانات
+            async function loadDataFromSheet() {
+                try {
+                    loadingIndicator.style.display = 'block';
+                    errorMessage.style.display = 'none';
+                    successMessage.style.display = 'none';
+                    
+                    console.log('بدء تحميل البيانات من السجلات الرسمية...');
+                    
+                    const response = await fetch('https://docs.google.com/spreadsheets/d/e/2PACX-1vTZjBeQ6q6CI-03EJTlzKw4nkuT6dNX7Rd59ZKVTcLfHxkA9ZcI4K0QDjvmCdlZhAI8ycN7RoyisLpI/pub?gid=1112476829&single=true&output=csv');
+                    
+                    if (!response.ok) {
+                        throw new Error(`فشل في تحميل البيانات: ${response.status} ${response.statusText}`);
+                    }
+                    
+                    const csvData = await response.text();
+                    console.log('تم تحميل البيانات بنجاح:', csvData);
+                    
+                    if (!csvData || csvData.trim().length === 0) {
+                        throw new Error('البيانات المستلمة فارغة - يرجى التحقق من جدول البيانات');
+                    }
+                    
+                    studentsData = parseCSVData(csvData);
+                    console.log('بيانات الطلاب بعد المعالجة:', studentsData);
+                    
+                    if (Object.keys(studentsData).length > 0) {
+                        successMessage.textContent = `✅ تم تحميل بيانات ${Object.keys(studentsData).length} طالب من السجلات الرسمية`;
+                        successMessage.style.display = 'block';
+                    } else {
+                        throw new Error('لم يتم العثور على بيانات الطلاب في الجدول');
+                    }
+                    
+                    loadingIndicator.style.display = 'none';
+                    return true;
+                } catch (error) {
+                    console.error('حدث خطأ في تحميل البيانات:', error);
+                    loadingIndicator.style.display = 'none';
+                    
+                    errorMessage.textContent = `❌ خطأ في تحميل البيانات: ${error.message}. يرجى التأكد من صحة الرابط وإعدادات النشر`;
+                    errorMessage.style.display = 'block';
+                    return false;
+                }
+            }
+
+            // معالجة بيانات CSV وتحويلها إلى JSON
+            function parseCSVData(csv) {
+                const lines = csv.split('\n').filter(line => line.trim() !== '');
+                const result = {};
+                
+                if (lines.length < 2) return result;
+                
+                const headers = lines[0].split(',').map(header => header.trim());
+                console.log('عناوين الأعمدة:', headers);
+                
+                for (let i = 1; i < lines.length; i++) {
+                    const currentLine = parseCSVLine(lines[i]);
+                    
+                    if (currentLine.length >= 17) {
+                        const studentId = currentLine[1];
+                        
+                        if (studentId && studentId.length >= 2) {
+                            result[studentId] = {
+                                name: currentLine[2] || "غير معروف",
+                                class: currentLine[3] || "غير محدد",
+                                subject: currentLine[4] || "التربية الإسلامية",
+                                notes: currentLine[5] || "لا توجد ملاحظات",
+                                tilaawa1: parseFloat(currentLine[6]) || 0,
+                                tilaawa2: parseFloat(currentLine[7]) || 0,
+                                hifz1: parseFloat(currentLine[8]) || 0,
+                                hifz2: parseFloat(currentLine[9]) || 0,
+                                skills: parseFloat(currentLine[10]) || 0,
+                                shortQ1: parseFloat(currentLine[11]) || 0,
+                                shortQ2: parseFloat(currentLine[12]) || 0,
+                                activity1: parseFloat(currentLine[13]) || 0,
+                                activity2: parseFloat(currentLine[14]) || 0,
+                                mentalSkills: parseFloat(currentLine[15]) || 0,
+                                total: parseFloat(currentLine[16]) || 0
+                            };
+                        }
+                    }
+                }
+                
+                return result;
+            }
+
+            function parseCSVLine(line) {
+                const result = [];
+                let current = '';
+                let inQuotes = false;
+                
+                for (let i = 0; i < line.length; i++) {
+                    const char = line[i];
+                    
+                    if (char === '"') {
+                        inQuotes = !inQuotes;
+                    } else if (char === ',' && !inQuotes) {
+                        result.push(current.trim());
+                        current = '';
+                    } else {
+                        current += char;
+                    }
+                }
+                
+                result.push(current.trim());
+                return result;
+            }
+
+            // البحث عن طالب
+            searchBtn.addEventListener('click', function() {
+                const studentId = document.getElementById('studentId').value.trim();
+                
+                if (!studentId) {
+                    errorMessage.textContent = '❌ يرجى إدخال رقم الطالب';
+                    errorMessage.style.display = 'block';
+                    successMessage.style.display = 'none';
+                    return;
+                }
+                
+                const studentIdPattern = /^\d{8}$/;
+                if (!studentIdPattern.test(studentId)) {
+                    errorMessage.textContent = '❌ رقم الطالب غير صحيح. يرجى استخدام 8 أرقام فقط (مثال: 12345678)';
+                    errorMessage.style.display = 'block';
+                    successMessage.style.display = 'none';
+                    return;
+                }
+                
+                if (studentsData[studentId]) {
+                    const student = studentsData[studentId];
+                    displayStudentData(student);
+                } else {
+                    errorMessage.textContent = '❌ رقم الطالب غير موجود في السجلات الرسمية. يرجى التحقق من الرقم والمحاولة مرة أخرى.';
+                    errorMessage.style.display = 'block';
+                    successMessage.style.display = 'none';
+                    studentInfo.classList.remove('active');
+                }
+            });
+
+            // عرض بيانات الطالب
+            function displayStudentData(student) {
+                document.getElementById('studentName').textContent = student.name;
+                document.getElementById('studentClass').textContent = student.class;
+                
+                document.getElementById('tilaawa1Grade').textContent = student.tilaawa1;
+                document.getElementById('tilaawa2Grade').textContent = student.tilaawa2;
+                document.getElementById('hifz1Grade').textContent = student.hifz1;
+                document.getElementById('hifz2Grade').textContent = student.hifz2;
+                document.getElementById('skillsGrade').textContent = student.skills;
+                document.getElementById('shortQ1Grade').textContent = student.shortQ1;
+                document.getElementById('shortQ2Grade').textContent = student.shortQ2;
+                document.getElementById('activity1Grade').textContent = student.activity1;
+                document.getElementById('activity2Grade').textContent = student.activity2;
+                document.getElementById('mentalSkillsGrade').textContent = student.mentalSkills;
+                document.getElementById('totalGrade').textContent = student.total;
+                
+                errorMessage.style.display = 'none';
+                successMessage.style.display = 'none';
+                
+                resetProgressBars();
+                
+                setTimeout(() => {
+                    document.getElementById('tilaawa1Progress').style.width = `${(student.tilaawa1 / 20) * 100}%`;
+                    document.getElementById('tilaawa2Progress').style.width = `${(student.tilaawa2 / 20) * 100}%`;
+                    document.getElementById('hifz1Progress').style.width = `${(student.hifz1 / 20) * 100}%`;
+                    document.getElementById('hifz2Progress').style.width = `${(student.hifz2 / 20) * 100}%`;
+                    document.getElementById('skillsProgress').style.width = `${(student.skills / 70) * 100}%`;
+                    document.getElementById('shortQ1Progress').style.width = `${(student.shortQ1 / 5) * 100}%`;
+                    document.getElementById('shortQ2Progress').style.width = `${(student.shortQ2 / 5) * 100}%`;
+                    document.getElementById('activity1Progress').style.width = `${(student.activity1 / 10) * 100}%`;
+                    document.getElementById('activity2Progress').style.width = `${(student.activity2 / 10) * 100}%`;
+                    document.getElementById('mentalSkillsProgress').style.width = `${(student.mentalSkills / 30) * 100}%`;
+                }, 100);
+                
+                document.getElementById('teacherNotes').textContent = student.notes;
+                
+                studentInfo.classList.add('active');
+                studentInfo.scrollIntoView({ behavior: 'smooth' });
+            }
+
+            function resetProgressBars() {
+                const progressBars = document.querySelectorAll('.progress-fill');
+                progressBars.forEach(bar => {
+                    bar.style.width = '0%';
+                });
+            }
+
+            // تحميل البيانات عند بدء التشغيل
+            loadDataFromSheet();
+        });
+    </script>
+</body>
+</html>
